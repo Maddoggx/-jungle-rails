@@ -5,6 +5,9 @@
   </header>
 
   <div class="panel panel-default items">
+  <% if enhanced_cart.empty? %>
+  <p> Your Cart is Empty. </p>
+  <% else %>
     <table class="table table-bordered">
       <thead>
         <tr>
@@ -30,6 +33,7 @@
         </tr>
       </tfoot>
     </table>
+  <% end %>
   </div>
 
   <div class="row">
