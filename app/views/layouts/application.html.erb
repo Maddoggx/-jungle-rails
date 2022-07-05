@@ -12,6 +12,14 @@
 <body>
 
   <%= render 'layouts/top_nav' %>
+   <div class="login-out">
+    <% if current_user %>
+      Signed in as <%= current_user.email %> | <%= link_to "Logout", '/logout', :class => 'link-success' %>
+    <% else %>
+    
+    <%= link_to 'Login', '/login', :class => 'link-success' %>  | <%= link_to 'Signup', '/signup', :class => 'link-success' %>
+    <% end %>
+  </div>
 
   <main class="container">
     <%= yield %>
