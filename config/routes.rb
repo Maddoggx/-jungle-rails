@@ -19,10 +19,17 @@ Rails.application.routes.draw do
   end
 
 
+
+
   #routes for login/signup
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
+  
+  get '/signup' => 'users#new'
+  post '/users' => 'users#create'
+
+  # other routes
   get '/about' => 'about#index' 
   get 'admin/products' => 'admin#index'
 
