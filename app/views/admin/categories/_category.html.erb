@@ -1,5 +1,13 @@
-<tr> 
+<% @categories.each do |category| %>
+<tr>
   <td>
-    <h4><%= category.name %></h4>
+    <h4><%= category.id %></h4>
   </td>
-</tr>
+  <td>
+    <%= category.name %>
+  </td>
+  <td>
+    <%= category.created_at %>
+  </td>
+</tr> 
+<% end %> 

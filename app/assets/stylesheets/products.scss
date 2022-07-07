@@ -21,7 +21,7 @@ main section.categories-show {
     article {
       .soldout {
         min-width: 110px;
-        background: rgba(224, 14, 14, 0.8);
+        background: rgba(229, 89, 89, 0.8);
         border: 1px solid rgba(224, 14, 14, 0.8);
         border-radius: 0.25em;
         color: white;
@@ -44,7 +44,7 @@ main section.categories-show {
 
       &:hover {
         transition: all 150ms linear;
-        background-color: rgba(0, 130, 29, 0.7);
+        background-color: rgb(109, 142, 109);
         h1 {
           color: white;
         }
