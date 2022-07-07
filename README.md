@@ -32,7 +32,7 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 - Stripe
 - Rspec
 
-# Node Dependencies
+## Node Dependencies
  @rails/actioncable
  @rails/activestorage
  @rails/ujs
@@ -40,3 +40,12 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
  turbolinks
  webpack
  webpack-cli
+
+
+## Screenshots
+
+![Home page](https://github.com/Maddoggx/-jungle-rails/blob/master/docs/:home_root.png)
+![Add Category](https://github.com/Maddoggx/-jungle-rails/blob/master/docs/Add_Category.png)
+![Product item](https://github.com/Maddoggx/-jungle-rails/blob/master/docs/Product_view.png)
+![About page](https://github.com/Maddoggx/-jungle-rails/blob/master/docs/about_page.png)
+![Dashboard](https://github.com/Maddoggx/-jungle-rails/blob/master/docs/admin_dashboard.png)
