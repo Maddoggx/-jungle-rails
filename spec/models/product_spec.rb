@@ -4,52 +4,42 @@ RSpec.describe Product, type: :model do
   describe 'Validations' do
     before(:each) do 
           @category = Category.new name: 'flowers'
+          @product = Product.new(
+            name: 'Tiger Lily',
+            price_cents: '78.95',
+            quantity: 3,
+            category: @category
+          )
         end
-          @product = Product.new 
-    it 'should check that a name is present' do
-      @category = Category.new(name: 'Category')
-      @product = Product.new(name: 'Name', quantity: 3, price: 1499, category: @category)
+    it 'should not be nil when all fields are present' do 
+      # @product.save
       expect(@product).to be_valid
     end
+    it 'should be nil when a name is not present' do
+      @product.name = nil 
+      expect(@product).not_to be_valid
+      expect(@product.errors.full_messages).to include("Name can't be blank")
 
-    it 'should check that a name is not nil' do
-      @category = Category.new(name: 'Category')
-      @product = Product.new(name: nil, quantity: 3, price: 1499, category: @category)
+    end
+
+    it 'should be nil when price is not present' do
+      @product.price_cents = nil
+      expect(@product).not_to be_valid
+      expect(@product.errors.full_messages).to include("Price can't be blank")
+
+    end
+
+    it 'should be nil if quantity is not present' do
+      @product.quantity = nil
+  
       expect(@product).to_not be_valid
+      expect(@product.errors.full_messages).to include("Quantity can't be blank")
     end
 
-    it 'should check that a price is not nil' do
-      @category = Category.new(name: 'Category')
-      @product = Product.new(name: 'Name', quantity: 3, price: '', category: @category)
-      expect(@product).to_not be_valid
+    it 'should be nil if a category is not present' do
+      @product.category = nil
+      expect(@product).to_not be_valid       
+      expect(@product.errors.full_messages).to include("Category must exist")
     end
-
-    it 'should check that a quantity is not nil' do
-      @category = Category.new(name: 'Category')
-      @product = Product.new(name: 'Name', quantity: nil, price: 1499, category: @category)
-      expect(@product).to_not be_valid
-    end
-
-    it 'should check that a category is not nil' do
-      @product = Product.new(name: 'Name', quantity: 3, price: 1499, category: nil)
-      expect(@product).to_not be_valid          
-    end
-
-    it 'should check that an error message is generated when an attribute is set to nil' do
-      @product = Product.new(name: 'Name', description: 'Description', image: 'plante_12.jpg', quantity: 3, price: 1499, category: nil)
-      expect(@product).to_not be_valid 
-      expect(@product.errors.full_messages).to_not be_empty
-    end
-
   end
-ends
-# describe 'Validations' do
-#   # validation tests/examples here
-#   before(:each) do 
-#     @category = Category.new name: 'flowers'
-#   end
-#     it 'should have a name' do 
-#   @product = Product.new(name: "lillie", price:1299, quantity: 5, category: @category)
-#   @product.validate
-#   expect(@product).to be_present
-#     end
+end

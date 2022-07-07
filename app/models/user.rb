@@ -8,14 +8,18 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 4 }
 
 
-
   def self.authenticate_with_credentials(email, password)
-    user = User.where('lower(email) = ?', email.downcase.strip).first
-    if user && user.authenticate(password)
-      user
-    else
+    # .strip - remove only leading and trailing whitespace
+    if !email 
       nil
+    else
+      user = User.find_by(email: email.strip)
+      if user && user.authenticate(password)
+        user
+      else
+        nil
+      end
     end
   end
-  
 end
+

@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   resources :products, only: [:index, :show]
   resources :categories, only: [:show]
+  # resources :about
+  resource :categories
 
   resource :cart, only: [:show] do
     post   :add_item
@@ -32,6 +34,7 @@ Rails.application.routes.draw do
   # other routes
   get '/about' => 'about#index' 
   get 'admin/products' => 'admin#index'
+  get '/categories' => 'categories#show'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
